@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portofolio profesional bidang Informatika, pengembangan aplikasi, dan teknologi informasi.">
+<title>Portofolio | Mochammad Faqih Fahrezi</title>
+<style>
+:root {
+  --site-primary: #173f35;
+  --site-secondary: #dcebe4;
+  --site-background: #f7f8f5;
+  --site-on-primary: #ffffff;
+  --site-on-secondary: #173f35;
+  --site-on-background: #17231f;
+  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  --surface: #ffffff;
+  --muted: #5f6e67;
+  --line: #dfe6e1;
+  --accent: #c7e5d7;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: light-dark(#f7f8f5, #111a16); color: light-dark(#17231f, #eef5f0); font-family: var(--site-font-body); line-height: 1.6; }
+#app { min-height: 100vh; width: 100%; background-color: var(--site-background); color: var(--site-on-background); border-radius: 0; overflow: hidden; }
+a { color: inherit; }
+.wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+header { border-bottom: 1px solid var(--line); background: rgba(255,255,255,.84); }
+.nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.05rem; text-decoration: none; }
+.brand span { color: #3d8068; }
+nav { display: flex; gap: 24px; align-items: center; }
+nav a { text-decoration: none; font-size: .92rem; color: #4b5a53; }
+nav a:hover { color: var(--site-primary); }
+.hero { padding: 88px 0 76px; display: grid; grid-template-columns: 1.35fr .65fr; gap: 54px; align-items: center; }
+.eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #326b55; font-weight: 750; font-size: .78rem; text-transform: uppercase; letter-spacing: .13em; }
+.dot { width: 8px; height: 8px; background: #398362; border-radius: 50%; box-shadow: 0 0 0 5px #e1f1e8; }
+h1,h2,h3,p { margin-top: 0; }
+h1 { font-family: var(--site-font-heading); font-size: clamp(2.5rem, 5.4vw, 4.5rem); line-height: 1.04; letter-spacing: -.065em; margin: 20px 0; max-width: 760px; }
+h1 em { color: #36775d; font-style: normal; }
+.lead { max-width: 650px; font-size: 1.08rem; color: #53635b; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 19px; border-radius: 10px; font-weight: 700; font-size: .93rem; text-decoration: none; border: 1px solid var(--site-primary); transition: transform .15s ease, background .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn.primary { background: var(--site-primary); color: white; }
+.btn.secondary { background: transparent; color: var(--site-primary); }
+.profile-card { background: var(--site-primary); color: white; border-radius: 22px; padding: 28px; min-height: 300px; position: relative; overflow: hidden; }
+.profile-card:before { content: ""; position: absolute; width: 210px; height: 210px; right: -70px; top: -65px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; box-shadow: 0 0 0 25px rgba(255,255,255,.04), 0 0 0 50px rgba(255,255,255,.03); opacity: var(--site-decoration-opacity); }
+.initials { width: 62px; height: 62px; border-radius: 18px; display: grid; place-items: center; background: #dcebe4; color: #173f35; font-size: 1.25rem; font-weight: 850; letter-spacing: -.04em; margin-bottom: 38px; position: relative; }
+.profile-card h2 { font-size: 1.4rem; letter-spacing: -.04em; margin-bottom: 5px; position: relative; }
+.profile-card p { color: #d5e6dc; font-size: .93rem; margin-bottom: 22px; position: relative; }
+.mini-tags { display: flex; flex-wrap: wrap; gap: 7px; position: relative; }
+.mini-tags span { border: 1px solid rgba(255,255,255,.24); padding: 5px 9px; border-radius: 99px; font-size: .75rem; color: #eef8f2; }
+section { padding: 72px 0; }
+section.alt { background: #edf3ee; }
+.section-head { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 30px; }
+.kicker { color: #3b775f; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 9px; }
+h2.section-title { font-size: clamp(1.8rem, 3.2vw, 2.6rem); line-height: 1.15; letter-spacing: -.05em; margin-bottom: 0; }
+.section-note { max-width: 410px; color: #5f6e67; margin-bottom: 2px; font-size: .95rem; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.about-grid p { color: #53635b; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 9px; align-content: start; }
+.skill-list span { background: white; border: 1px solid #dce5df; padding: 9px 13px; border-radius: 9px; font-size: .88rem; font-weight: 650; }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; }
+.project { border: 1px solid var(--line); background: var(--surface); border-radius: 17px; overflow: hidden; }
+.project-art { padding: 20px; min-height: 210px; background: #e9f1eb; display: grid; place-items: center; }
+.mock-window { width: 100%; max-width: 390px; border: 1px solid #d2ddd5; border-radius: 10px; background: white; box-shadow: 0 12px 30px rgba(24,57,41,.08); overflow: hidden; }
+.mock-top { height: 25px; border-bottom: 1px solid #e5ebe7; display: flex; align-items: center; padding: 0 9px; gap: 4px; }
+.mock-top i { display: block; width: 6px; height: 6px; border-radius: 50%; background: #c2d0c7; }
+.mock-body { padding: 13px; }
+.mock-heading { height: 8px; width: 42%; background: #315e49; border-radius: 5px; margin-bottom: 12px; }
+.mock-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; margin-bottom: 11px; }
+.mock-stats b { height: 32px; border-radius: 5px; background: #e7f1ea; border: 1px solid #d9e6dc; }
+.mock-row { height: 8px; border-radius: 4px; background: #edf1ee; margin-top: 7px; }
+.mock-row:nth-child(odd) { width: 86%; }
+.mock-code { background: #1b2b24; color: #cde8d8; border-radius: 9px; padding: 16px; font: 11px/1.9 ui-monospace, SFMono-Regular, Menlo, monospace; width: 100%; max-width: 390px; }
+.mock-code .green { color: #8ed6aa; }
+.project-content { padding: 22px; }
+.project-meta { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+.project-meta span { font-size: .72rem; font-weight: 750; color: #38674f; background: #e7f2ea; border-radius: 6px; padding: 4px 8px; }
+.project h3 { font-size: 1.2rem; letter-spacing: -.025em; margin-bottom: 8px; }
+.project p { font-size: .92rem; color: #5c6a63; margin-bottom: 15px; }
+.project-link { color: #2e6d50; text-decoration: none; font-weight: 750; font-size: .9rem; }
+.project-link:hover { text-decoration: underline; }
+.project-footnote { margin-top: 18px; color: #6b786f; font-size: .82rem; }
+.timeline { border-left: 2px solid #c8dbcf; padding-left: 24px; margin-left: 7px; }
+.timeline-item { position: relative; padding: 0 0 25px; }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item:before { content: ""; position: absolute; width: 10px; height: 10px; background: #3c8061; border: 3px solid #edf3ee; border-radius: 50%; left: -31px; top: 6px; }
+.timeline-item h3 { margin-bottom: 4px; font-size: 1.08rem; }
+.timeline-item .date { color: #3b775f; font-size: .8rem; font-weight: 800; }
+.timeline-item p { color: #5b6961; font-size: .92rem; margin: 7px 0 0; }
+.contact-box { background: var(--site-primary); color: white; border-radius: 20px; padding: clamp(25px, 5vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.contact-box h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); line-height: 1.15; letter-spacing: -.05em; margin-bottom: 10px; }
+.contact-box p { color: #d8e8de; margin-bottom: 0; max-width: 560px; }
+.contact-box .btn { background: #e1f0e7; color: #173f35; border-color: #e1f0e7; white-space: nowrap; }
+footer { padding: 24px 0; color: #69766e; font-size: .82rem; }
+.footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 760px) { .wrap { width: min(100% - 30px, 600px); } .nav { min-height: 66px; } nav { gap: 12px; } nav a { font-size: .8rem; } .hero { grid-template-columns: 1fr; padding: 62px 0 54px; gap: 30px; } .profile-card { min-height: 0; } .initials { margin-bottom: 24px; } section { padding: 54px 0; } .section-head { display: block; } .section-note { margin-top: 13px; } .about-grid, .project-grid { grid-template-columns: 1fr; } .contact-box { align-items: start; flex-direction: column; } }
+@media (max-width: 430px) { nav a:nth-child(2) { display: none; } h1 { font-size: 2.65rem; } .actions .btn { width: 100%; } }
+</style>
+</head>
+<body>
+<div id="app">
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">FAQIH<span>.</span></a>
+    <nav aria-label="Navigasi utama">
+      <a href="#tentang">Tentang</a><a href="#project">Project</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap hero" id="home">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Informatika · IT & Software</div>
+      <h1>Membangun solusi digital yang <em>berguna.</em></h1>
+      <p class="lead">Saya Mochammad Faqih Fahrezi, individu berlatar belakang Informatika yang tertarik pada pengembangan aplikasi, pengelolaan data, dan pemecahan masalah melalui teknologi.</p>
+      <div class="actions"><a class="btn primary" href="#project">Lihat project <span aria-hidden="true">↗</span></a><a class="btn secondary" href="#kontak">Hubungi saya</a></div>
+    </div>
+    <aside class="profile-card" aria-label="Ringkasan profil">
+      <div class="initials">MF</div>
+      <h2>Mochammad Faqih Fahrezi</h2>
+      <p>Informatika · Junior IT / Software Development</p>
+      <div class="mini-tags"><span>Java</span><span>PHP</span><span>MySQL</span><span>HTML/CSS</span></div>
+    </aside>
+  </div>
+  <section id="tentang" class="alt">
+    <div class="wrap">
+      <div class="section-head"><div><div class="kicker">Tentang saya</div><h2 class="section-title">Teknologi, proses, dan solusi.</h2></div><p class="section-note">Portofolio ini merangkum pengalaman dan project yang relevan untuk peluang kerja di bidang teknologi informasi.</p></div>
+      <div class="about-grid">
+        <div><p>Saya memiliki pengalaman mengembangkan aplikasi desktop untuk mendukung pencatatan inventori, serta mengerjakan project akademik terkait sistem informasi dan pengolahan data. Saya senang mempelajari teknologi baru dan membangun solusi yang sesuai dengan kebutuhan pengguna.</p><p>Saya terbuka terhadap kesempatan awal karier di bidang IT, termasuk pengembangan aplikasi, web development, dan peran teknis yang relevan.</p></div>
+        <div class="skill-list" aria-label="Teknologi dan bidang minat"><span>Java</span><span>Java Swing</span><span>PHP</span><span>HTML & CSS</span><span>JavaScript</span><span>MySQL / MariaDB</span><span>NetBeans</span><span>XAMPP</span><span>Analisis Sistem</span><span>Database</span><span>Dokumentasi Teknis</span></div>
+      </div>
+    </div>
+  </section>
+  <section id="project">
+    <div class="wrap">
+      <div class="section-head"><div><div class="kicker">Pilihan pekerjaan</div><h2 class="section-title">Project yang pernah dikerjakan.</h2></div><p class="section-note">Setiap project idealnya dilengkapi screenshot asli, penjelasan kontribusi, dan tautan demo atau source code jika tersedia.</p></div>
+      <div class="project-grid">
+        <article class="project">
+          <div class="project-art"><div class="mock-window" aria-hidden="true"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-body"><div class="mock-heading"></div><div class="mock-stats"><b></b><b></b><b></b></div><div class="mock-row"></div><div class="mock-row"></div><div class="mock-row"></div><div class="mock-row"></div></div></div></div>
+          <div class="project-content"><div class="project-meta"><span>DESKTOP APP</span><span>MAGANG</span></div><h3>Sistem Inventori Toko Artic Sparepart AC</h3><p>Aplikasi desktop berbasis Java untuk membantu pengelolaan data barang dan stok. Project ini dikembangkan sebagai bagian dari pengalaman magang.</p><p><strong>Teknologi:</strong> Java Swing, NetBeans, database MySQL/MariaDB.</p><a class="project-link" href="#kontak">Minta demo / detail project ↗</a></div>
+        </article>
+        <article class="project">
+          <div class="project-art"><div class="mock-code" aria-hidden="true"><div><span class="green">// Sistem Pendukung Keputusan</span></div><div>kriteria = [penghasilan,</div><div>&nbsp; tanggungan, pekerjaan,</div><div>&nbsp; kondisi_rumah, aset];</div><div class="green">// Normalisasi dan pembobotan</div><div>nilai_akhir = Σ(bobot × nilai);</div><div>urutkan(nilai_akhir);</div></div></div>
+          <div class="project-content"><div class="project-meta"><span>ACADEMIC PROJECT</span><span>DECISION SUPPORT</span></div><h3>Sistem Pendukung Keputusan Penerima Zakat Fitrah</h3><p>Project akademik untuk membantu proses penilaian dan pemeringkatan calon penerima berdasarkan kriteria yang ditentukan menggunakan metode SAW.</p><p><strong>Fokus:</strong> analisis kebutuhan, kriteria, pembobotan, dan hasil perankingan.</p><a class="project-link" href="#kontak">Minta detail project ↗</a></div>
+        </article>
+        <article class="project">
+          <div class="project-art"><div class="mock-window" aria-hidden="true"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-body"><div class="mock-heading" style="width:55%"></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px"><b style="height:70px;border-radius:5px;background:#e5eee8"></b><b style="height:70px;border-radius:5px;background:#e5eee8"></b><b style="height:70px;border-radius:5px;background:#e5eee8"></b></div><div class="mock-row"></div><div class="mock-row"></div></div></div></div>
+          <div class="project-content"><div class="project-meta"><span>WEB PROJECT</span><span>E-COMMERCE CONCEPT</span></div><h3>JERSEYKU.COM</h3><p>Konsep website katalog jersey sepak bola yang berfokus pada penyajian produk dan pengalaman penelusuran bagi calon pembeli.</p><p><strong>Fokus:</strong> perancangan halaman web dan struktur katalog produk.</p><a class="project-link" href="#kontak">Minta detail project ↗</a></div>
+        </article>
+        <article class="project">
+          <div class="project-art"><div class="mock-code" aria-hidden="true"><div><span class="green">&lt;?php</span></div><div>$conn = mysqli_connect(</div><div>&nbsp; $host, $user, $password,</div><div>&nbsp; $database</div><div>);</div><div class="green">// CRUD dan pengolahan data</div><div>if ($conn) { /* ... */ }</div></div></div>
+          <div class="project-content"><div class="project-meta"><span>WEB DEVELOPMENT</span><span>PHP & DATABASE</span></div><h3>Project Web PHP & MySQL</h3><p>Tambahkan project web lain yang pernah kamu buat. Jelaskan kebutuhan, fitur yang benar-benar selesai, peran pribadi, serta hasil yang bisa diverifikasi.</p><p><strong>Teknologi:</strong> sesuaikan dengan implementasi project aslimu.</p><a class="project-link" href="#kontak">Tambahkan detail project ↗</a></div>
+        </article>
+      </div>
+      <p class="project-footnote">Catatan: visual kartu di atas adalah ilustrasi desain, bukan screenshot aplikasi asli. Ganti dengan gambar project milikmu sebelum dipublikasikan sebagai portofolio final.</p>
+    </div>
+  </section>
+  <section id="pengalaman" class="alt">
+    <div class="wrap">
+      <div class="section-head"><div><div class="kicker">Pengalaman</div><h2 class="section-title">Belajar dengan mengerjakan.</h2></div></div>
+      <div class="timeline">
+        <div class="timeline-item"><div class="date">PENGALAMAN MAGANG</div><h3>Pengembangan Aplikasi Inventori — Toko Artic Sparepart AC</h3><p>Membantu mengembangkan aplikasi desktop berbasis Java untuk mendukung pengelolaan stok barang. Tambahkan periode magang, tugas spesifik, dan hasil yang dapat kamu buktikan.</p></div>
+        <div class="timeline-item"><div class="date">AKADEMIK</div><h3>Studi Informatika</h3><p>Project akademik mencakup perancangan sistem, database, pengembangan aplikasi, dan penyusunan dokumentasi. Lengkapi status pendidikan dan tahun kelulusan yang benar sebelum publikasi.</p></div>
+      </div>
+    </div>
+  </section>
+  <section id="kontak">
+    <div class="wrap"><div class="contact-box"><div><div class="kicker" style="color:#bce4cd">Kontak</div><h2>Terbuka untuk peluang berikutnya.</h2><p>Saya terbuka untuk kesempatan kerja entry-level di bidang IT. Hubungi saya untuk berdiskusi mengenai pengalaman, project, atau peluang yang sesuai.</p></div><a class="btn" href="mailto:emailkamu@example.com">Email saya ↗</a></div></div>
+  </section>
+</main>
+<footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> Mochammad Faqih Fahrezi</span><span>Portofolio profesional · Informatika</span></div></footer>
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
