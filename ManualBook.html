@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+    h1 { color: #1F5A45; text-align: center; border-bottom: 2px solid #1F5A45; padding-bottom: 10px; }
+    h2 { color: #2D7D5A; margin-top: 30px; }
+    h3 { color: #3b9b73; }
+    p { text-align: justify; }
+    ul { margin-bottom: 20px; }
+    .cover { text-align: center; margin-top: 100px; margin-bottom: 100px; }
+    .cover h1 { border: none; font-size: 36px; margin-bottom: 5px; }
+    .cover h2 { margin-top: 0; color: #555; font-size: 20px; font-weight: normal; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    table, th, td { border: 1px solid #ddd; }
+    th, td { padding: 12px; text-align: left; }
+    th { background-color: #f2f2f2; color: #333; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+    <h1>MANUAL BOOK</h1>
+    <h2>Aplikasi Sistem Pendukung Keputusan (SPK) Penyaluran Zakat</h2>
+</div>
+
+<h2>1. Pendahuluan</h2>
+<p>Aplikasi Sistem Pendukung Keputusan (SPK) Penyaluran Zakat adalah perangkat lunak yang dirancang untuk membantu dalam proses seleksi dan penentuan penerima zakat (mustahik) secara objektif dan terkomputerisasi. Aplikasi ini mengelola data mustahik, kriteria penilaian, subkriteria, serta melakukan perhitungan untuk menghasilkan rekomendasi penerima zakat terbaik berdasarkan kriteria yang telah ditetapkan.</p>
+
+<h2>2. Kebutuhan Sistem</h2>
+<ul>
+    <li>Sistem Operasi: Windows 7, 8, 10, atau 11</li>
+    <li>Java Runtime Environment (JRE) minimal versi 8</li>
+    <li>Database: MySQL (via XAMPP atau sejenisnya)</li>
+</ul>
+
+<h2>3. Hak Akses dan Login</h2>
+<p>Untuk dapat menggunakan aplikasi, pengguna harus melakukan login terlebih dahulu:</p>
+<ol>
+    <li>Buka aplikasi SPK Zakat.</li>
+    <li>Pada halaman Login, masukkan <b>Username</b> dan <b>Password</b> yang valid.</li>
+    <li>Klik tombol <b>Login</b>. Jika data benar, Anda akan diarahkan ke halaman Dashboard utama.</li>
+</ol>
+
+<h2>4. Fitur Utama dan Penggunaan</h2>
+<p>Aplikasi ini memiliki beberapa menu utama yang dapat diakses melalui sidebar di sebelah kiri layar:</p>
+
+<h3>4.1. Dashboard</h3>
+<p>Halaman utama yang menampilkan ringkasan informasi, seperti total mustahik, total kriteria, total penilaian, serta grafik atau rangking teratas dari calon penerima zakat.</p>
+
+<h3>4.2. Data Mustahik</h3>
+<p>Menu ini digunakan untuk mengelola data calon penerima zakat.</p>
+<ul>
+    <li><b>Tambah Data:</b> Isi form (NIK, Nama, Jenis Kelamin, No HP, Alamat) dan klik tombol <b>Simpan</b>.</li>
+    <li><b>Ubah Data:</b> Pilih data pada tabel, ubah informasi pada form, lalu klik <b>Ubah</b>.</li>
+    <li><b>Hapus Data:</b> Pilih data pada tabel dan klik tombol <b>Hapus</b>.</li>
+    <li><b>Pencarian:</b> Gunakan kolom pencarian di bagian atas tabel untuk mencari mustahik berdasarkan nama atau NIK.</li>
+</ul>
+
+<h3>4.3. Data Kriteria</h3>
+<p>Menu ini digunakan untuk mengatur kriteria penilaian (Penghasilan [0.25], Jumlah Tanggungan [0.20], Status Pekerjaan [0.15], Status Tempat Tinggal [0.12], Kepemilikan Aset [0.10], Kondisi Kesehatan [0.08], Jumlah Anggota Keluarga Yang Bekerja [0.05], Usia [0.05]).</p>
+<ul>
+    <li>Setiap kriteria memiliki <b>Kode</b> (misal: C1, C2), <b>Nama Kriteria</b>, <b>Bobot</b> (dalam persentase atau angka), dan <b>Jenis</b> (Benefit atau Cost).</li>
+    <li>Pengguna dapat menambah, mengubah, atau menghapus kriteria sesuai kebijakan penilaian.</li>
+</ul>
+
+<h3>4.4. Data Subkriteria</h3>
+<p>Subkriteria adalah rincian nilai dari masing-masing kriteria.</p>
+<ul>
+    <li>Pilih Kriteria terlebih dahulu.</li>
+    <li>Masukkan nama subkriteria dan nilai (rating) yang sesuai.</li>
+    <li>Gunakan tombol aksi (Simpan, Ubah, Hapus) untuk mengelola data.</li>
+</ul>
+
+<h3>4.5. Penilaian</h3>
+<p>Proses pemberian nilai kepada setiap mustahik berdasarkan kriteria yang ada.</p>
+<ul>
+    <li>Pilih nama mustahik dari daftar.</li>
+    <li>Isi/pilih nilai untuk setiap kriteria berdasarkan subkriteria yang telah dibuat.</li>
+    <li>Klik <b>Simpan</b> untuk menyimpan data penilaian.</li>
+</ul>
+
+<h3>4.6. Hasil SPK</h3>
+<p>Menu ini menampilkan hasil perhitungan Sistem Pendukung Keputusan (menggunakan metode SPK tertentu yang ditanam dalam sistem).</p>
+<ul>
+    <li>Sistem akan melakukan normalisasi dan perhitungan akhir.</li>
+    <li>Hasil akhir akan berupa daftar mustahik beserta <b>Nilai Preferensi</b> dan <b>Rangking</b>.</li>
+    <li>Mustahik dengan nilai atau rangking tertinggi direkomendasikan sebagai prioritas penerima zakat.</li>
+</ul>
+
+<h3>4.7. Laporan</h3>
+<p>Fitur untuk mencetak atau mengekspor data laporan yang dibutuhkan oleh pengurus atau lembaga amil zakat.</p>
+<ul>
+    <li>Pilih jenis laporan (Laporan Data Mustahik, Laporan Hasil Keputusan, dll).</li>
+    <li>Klik tombol <b>Cetak</b> atau ekspor untuk menyimpan laporan (biasanya ke format Excel atau PDF).</li>
+</ul>
+
+<h2>5. Penutup</h2>
+<p>Demikian manual book penggunaan Aplikasi Sistem Pendukung Keputusan Zakat ini. Pastikan Anda melakukan backup database secara berkala untuk menjaga keamanan data. Jika mengalami kendala teknis, silakan hubungi administrator sistem Anda.</p>
+
+</body>
+</html>
