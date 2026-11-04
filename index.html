@@ -3,181 +3,1706 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portofolio profesional bidang Informatika, pengembangan aplikasi, dan teknologi informasi.">
-<title>Portofolio | Mochammad Faqih Fahrezi</title>
+<meta name="description" content="Portofolio profesional Mochammad Faqih Fahrezi - Sarjana Informatika, Software & Application Developer, dengan fokus pada Java Desktop, Sistem Pendukung Keputusan (SPK), MySQL, dan Web Development.">
+<title>Portofolio | Mochammad Faqih Fahrezi - Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --site-primary: #173f35;
+  --site-primary-hover: #12332a;
   --site-secondary: #dcebe4;
   --site-background: #f7f8f5;
   --site-on-primary: #ffffff;
   --site-on-secondary: #173f35;
   --site-on-background: #17231f;
-  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --site-font-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --site-heading-scale: 1;
-  --site-spacing-scale: 1;
-  --site-radius-scale: 1;
-  --site-decoration-opacity: 1;
+  --site-font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --surface: #ffffff;
+  --surface-alt: #f2f5f3;
   --muted: #5f6e67;
   --line: #dfe6e1;
-  --accent: #c7e5d7;
+  --line-strong: #c2d2c8;
+  --accent: #2e7d5a;
+  --accent-light: #e6f4ee;
+  --badge-bg: #e5f2eb;
+  --badge-text: #205c43;
+  --shadow-sm: 0 2px 6px rgba(23, 63, 53, 0.05);
+  --shadow-md: 0 10px 25px rgba(23, 63, 53, 0.08);
+  --shadow-lg: 0 20px 40px rgba(23, 63, 53, 0.12);
 }
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: light-dark(#f7f8f5, #111a16); color: light-dark(#17231f, #eef5f0); font-family: var(--site-font-body); line-height: 1.6; }
-#app { min-height: 100vh; width: 100%; background-color: var(--site-background); color: var(--site-on-background); border-radius: 0; overflow: hidden; }
-a { color: inherit; }
-.wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
-header { border-bottom: 1px solid var(--line); background: rgba(255,255,255,.84); }
-.nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.05rem; text-decoration: none; }
-.brand span { color: #3d8068; }
-nav { display: flex; gap: 24px; align-items: center; }
-nav a { text-decoration: none; font-size: .92rem; color: #4b5a53; }
+body {
+  margin: 0;
+  background: var(--site-background);
+  color: var(--site-on-background);
+  font-family: var(--site-font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--site-background);
+  color: var(--site-on-background);
+}
+
+a { color: inherit; text-decoration: none; }
+.wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+/* HEADER & NAVBAR */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--line);
+  background: rgba(247, 248, 245, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nav {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand {
+  font-weight: 800;
+  letter-spacing: -.03em;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.brand span { color: var(--accent); }
+nav { display: flex; gap: 26px; align-items: center; }
+nav a {
+  font-size: .92rem;
+  font-weight: 600;
+  color: #4b5a53;
+  transition: color .2s ease;
+}
 nav a:hover { color: var(--site-primary); }
-.hero { padding: 88px 0 76px; display: grid; grid-template-columns: 1.35fr .65fr; gap: 54px; align-items: center; }
-.eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #326b55; font-weight: 750; font-size: .78rem; text-transform: uppercase; letter-spacing: .13em; }
-.dot { width: 8px; height: 8px; background: #398362; border-radius: 50%; box-shadow: 0 0 0 5px #e1f1e8; }
-h1,h2,h3,p { margin-top: 0; }
-h1 { font-family: var(--site-font-heading); font-size: clamp(2.5rem, 5.4vw, 4.5rem); line-height: 1.04; letter-spacing: -.065em; margin: 20px 0; max-width: 760px; }
-h1 em { color: #36775d; font-style: normal; }
-.lead { max-width: 650px; font-size: 1.08rem; color: #53635b; }
-.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 19px; border-radius: 10px; font-weight: 700; font-size: .93rem; text-decoration: none; border: 1px solid var(--site-primary); transition: transform .15s ease, background .15s ease; }
-.btn:hover { transform: translateY(-2px); }
-.btn.primary { background: var(--site-primary); color: white; }
-.btn.secondary { background: transparent; color: var(--site-primary); }
-.profile-card { background: var(--site-primary); color: white; border-radius: 22px; padding: 28px; min-height: 300px; position: relative; overflow: hidden; }
-.profile-card:before { content: ""; position: absolute; width: 210px; height: 210px; right: -70px; top: -65px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; box-shadow: 0 0 0 25px rgba(255,255,255,.04), 0 0 0 50px rgba(255,255,255,.03); opacity: var(--site-decoration-opacity); }
-.initials { width: 62px; height: 62px; border-radius: 18px; display: grid; place-items: center; background: #dcebe4; color: #173f35; font-size: 1.25rem; font-weight: 850; letter-spacing: -.04em; margin-bottom: 38px; position: relative; }
-.profile-card h2 { font-size: 1.4rem; letter-spacing: -.04em; margin-bottom: 5px; position: relative; }
-.profile-card p { color: #d5e6dc; font-size: .93rem; margin-bottom: 22px; position: relative; }
-.mini-tags { display: flex; flex-wrap: wrap; gap: 7px; position: relative; }
-.mini-tags span { border: 1px solid rgba(255,255,255,.24); padding: 5px 9px; border-radius: 99px; font-size: .75rem; color: #eef8f2; }
-section { padding: 72px 0; }
+.nav-actions { display: flex; align-items: center; gap: 14px; }
+.btn-nav-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: .84rem;
+  font-weight: 600;
+  background: #ffffff;
+  border: 1px solid var(--line-strong);
+  color: var(--site-primary);
+  transition: all .2s ease;
+}
+.btn-nav-github:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+
+/* HERO */
+.hero {
+  padding: 84px 0 76px;
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: 48px;
+  align-items: center;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #2b6a50;
+  font-weight: 750;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  background: var(--accent-light);
+  padding: 6px 14px;
+  border-radius: 99px;
+  margin-bottom: 18px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #2e7d5a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #c2e5d5;
+}
+h1, h2, h3, p { margin-top: 0; }
+h1 {
+  font-family: var(--site-font-heading);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.08;
+  letter-spacing: -.05em;
+  margin: 14px 0 20px;
+  max-width: 760px;
+  font-weight: 800;
+}
+h1 em {
+  color: #2e7d5a;
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: #a4d8c2;
+  text-underline-offset: 6px;
+}
+.lead {
+  max-width: 640px;
+  font-size: 1.06rem;
+  color: #4f6057;
+  line-height: 1.7;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: .92rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn.primary {
+  background: var(--site-primary);
+  color: white;
+  box-shadow: 0 6px 18px rgba(23, 63, 53, 0.2);
+}
+.btn.primary:hover {
+  background: var(--site-primary-hover);
+  box-shadow: 0 8px 22px rgba(23, 63, 53, 0.25);
+}
+.btn.secondary {
+  background: #ffffff;
+  color: var(--site-primary);
+  border-color: var(--line-strong);
+}
+.btn.secondary:hover {
+  background: var(--surface-alt);
+  border-color: var(--site-primary);
+}
+.btn-sm {
+  min-height: 38px;
+  padding: 0 16px;
+  font-size: .84rem;
+  border-radius: 8px;
+}
+
+/* PROFILE CARD */
+.profile-card {
+  background: linear-gradient(145deg, #173f35 0%, #1f5a45 100%);
+  color: white;
+  border-radius: 24px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255,255,255,.1);
+}
+.profile-card:before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  right: -80px;
+  top: -70px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 25px rgba(255,255,255,.04), 0 0 0 55px rgba(255,255,255,.03);
+  pointer-events: none;
+}
+.profile-avatar-wrap {
+  width: 96px;
+  height: 96px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid rgba(220, 235, 228, 0.9);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  margin-bottom: 20px;
+  position: relative;
+  background: #173f35;
+}
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  display: block;
+}
+.initials {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: #dcebe4;
+  color: #173f35;
+  font-size: 1.35rem;
+  font-weight: 850;
+  letter-spacing: -.03em;
+  margin-bottom: 30px;
+  position: relative;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+.profile-card h2 {
+  font-size: 1.45rem;
+  letter-spacing: -.03em;
+  margin-bottom: 6px;
+  position: relative;
+  font-weight: 750;
+}
+.profile-card p {
+  color: #d1e7dc;
+  font-size: .92rem;
+  margin-bottom: 24px;
+  position: relative;
+}
+.profile-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .78rem;
+  background: rgba(255,255,255,.12);
+  padding: 6px 12px;
+  border-radius: 99px;
+  margin-bottom: 20px;
+  color: #c9f0dd;
+}
+.profile-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+}
+.mini-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: relative;
+}
+.mini-tags span {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  padding: 5px 11px;
+  border-radius: 8px;
+  font-size: .76rem;
+  font-weight: 600;
+  color: #f0f8f4;
+}
+
+/* SECTIONS */
+section { padding: 76px 0; }
 section.alt { background: #edf3ee; }
-.section-head { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 30px; }
-.kicker { color: #3b775f; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 9px; }
-h2.section-title { font-size: clamp(1.8rem, 3.2vw, 2.6rem); line-height: 1.15; letter-spacing: -.05em; margin-bottom: 0; }
-.section-note { max-width: 410px; color: #5f6e67; margin-bottom: 2px; font-size: .95rem; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.about-grid p { color: #53635b; }
-.skill-list { display: flex; flex-wrap: wrap; gap: 9px; align-content: start; }
-.skill-list span { background: white; border: 1px solid #dce5df; padding: 9px 13px; border-radius: 9px; font-size: .88rem; font-weight: 650; }
-.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; }
-.project { border: 1px solid var(--line); background: var(--surface); border-radius: 17px; overflow: hidden; }
-.project-art { padding: 20px; min-height: 210px; background: #e9f1eb; display: grid; place-items: center; }
-.mock-window { width: 100%; max-width: 390px; border: 1px solid #d2ddd5; border-radius: 10px; background: white; box-shadow: 0 12px 30px rgba(24,57,41,.08); overflow: hidden; }
-.mock-top { height: 25px; border-bottom: 1px solid #e5ebe7; display: flex; align-items: center; padding: 0 9px; gap: 4px; }
-.mock-top i { display: block; width: 6px; height: 6px; border-radius: 50%; background: #c2d0c7; }
-.mock-body { padding: 13px; }
-.mock-heading { height: 8px; width: 42%; background: #315e49; border-radius: 5px; margin-bottom: 12px; }
-.mock-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; margin-bottom: 11px; }
-.mock-stats b { height: 32px; border-radius: 5px; background: #e7f1ea; border: 1px solid #d9e6dc; }
-.mock-row { height: 8px; border-radius: 4px; background: #edf1ee; margin-top: 7px; }
-.mock-row:nth-child(odd) { width: 86%; }
-.mock-code { background: #1b2b24; color: #cde8d8; border-radius: 9px; padding: 16px; font: 11px/1.9 ui-monospace, SFMono-Regular, Menlo, monospace; width: 100%; max-width: 390px; }
-.mock-code .green { color: #8ed6aa; }
-.project-content { padding: 22px; }
-.project-meta { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
-.project-meta span { font-size: .72rem; font-weight: 750; color: #38674f; background: #e7f2ea; border-radius: 6px; padding: 4px 8px; }
-.project h3 { font-size: 1.2rem; letter-spacing: -.025em; margin-bottom: 8px; }
-.project p { font-size: .92rem; color: #5c6a63; margin-bottom: 15px; }
-.project-link { color: #2e6d50; text-decoration: none; font-weight: 750; font-size: .9rem; }
-.project-link:hover { text-decoration: underline; }
-.project-footnote { margin-top: 18px; color: #6b786f; font-size: .82rem; }
-.timeline { border-left: 2px solid #c8dbcf; padding-left: 24px; margin-left: 7px; }
-.timeline-item { position: relative; padding: 0 0 25px; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-end;
+  margin-bottom: 34px;
+}
+.kicker {
+  color: #2b6a50;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+h2.section-title {
+  font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+  line-height: 1.15;
+  letter-spacing: -.04em;
+  margin-bottom: 0;
+  font-weight: 800;
+}
+.section-note {
+  max-width: 440px;
+  color: #586760;
+  margin-bottom: 2px;
+  font-size: .95rem;
+}
+
+/* ABOUT SECTION */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 44px;
+  align-items: start;
+}
+.about-text p {
+  color: #4a5c53;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.skill-card h4 {
+  margin: 0 0 14px;
+  font-size: .9rem;
+  color: var(--site-primary);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 750;
+}
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.skill-list:last-child { margin-bottom: 0; }
+.skill-list span {
+  background: #f4f8f5;
+  border: 1px solid #dce5df;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: .84rem;
+  font-weight: 650;
+  color: #2c443b;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* FEATURED PROJECT */
+.featured-project {
+  background: var(--surface);
+  border: 2px solid #b8dfcd;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 34px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  position: relative;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.featured-project:hover {
+  box-shadow: var(--shadow-lg);
+}
+.featured-tag {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #173f35;
+  color: #eafff4;
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: .75rem;
+  font-weight: 750;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.featured-content {
+  padding: 40px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.featured-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  margin-bottom: 14px;
+}
+.badge {
+  font-size: .72rem;
+  font-weight: 750;
+  color: var(--badge-text);
+  background: var(--badge-bg);
+  border: 1px solid #c8e5d6;
+  border-radius: 6px;
+  padding: 4px 9px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.featured-content h3 {
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  letter-spacing: -.03em;
+  margin-bottom: 12px;
+  color: var(--site-primary);
+  line-height: 1.25;
+}
+.featured-content p.desc {
+  font-size: .96rem;
+  color: #4b5c53;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.feature-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.feature-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .88rem;
+  color: #3b4d45;
+  line-height: 1.5;
+}
+.feature-highlights li svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: #2b7a57;
+}
+
+.featured-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* WINDOW MOCKUP & IMAGE CONTAINERS */
+.featured-art {
+  background: linear-gradient(135deg, #e7f1eb 0%, #d8e8de 100%);
+  padding: 24px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #d7e4dc;
+}
+.app-window {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(18, 54, 42, 0.16);
+  border: 1px solid #ccdcd2;
+  overflow: hidden;
+  font-size: 11px;
+}
+.window-titlebar {
+  background: #173f35;
+  color: #e5f2eb;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.window-controls { display: flex; gap: 5px; }
+.window-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #476a5e;
+}
+.window-dot.close { background: #e06c75; }
+.window-dot.min { background: #e5c07b; }
+.window-dot.max { background: #98c379; }
+.window-title {
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: .02em;
+  opacity: .95;
+}
+
+/* OTHER PROJECTS GRID */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.project {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.project:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: #b8cfc2;
+}
+.project-art {
+  padding: 20px;
+  min-height: 180px;
+  background: #eaf2ed;
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid #e1ebe4;
+}
+.mock-window {
+  width: 100%;
+  max-width: 340px;
+  border: 1px solid #d2ddd5;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 8px 20px rgba(24,57,41,.07);
+  overflow: hidden;
+}
+.mock-top {
+  height: 24px;
+  border-bottom: 1px solid #e5ebe7;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 4px;
+}
+.mock-top i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b5c7bc;
+}
+
+.mock-code {
+  background: #172a22;
+  color: #cce7d8;
+  border-radius: 8px;
+  padding: 14px;
+  font: 11px/1.8 var(--site-font-mono);
+  width: 100%;
+  max-width: 340px;
+}
+.mock-code .green { color: #7fe0a6; }
+.mock-code .kw { color: #f38ba8; }
+.mock-code .fn { color: #89b4fa; }
+
+.project-content {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.project-meta span {
+  font-size: .7rem;
+  font-weight: 750;
+  color: #2b674b;
+  background: #e7f3ec;
+  border-radius: 5px;
+  padding: 3px 8px;
+}
+.project h3 {
+  font-size: 1.15rem;
+  letter-spacing: -.02em;
+  margin-bottom: 8px;
+  color: var(--site-primary);
+  font-weight: 750;
+}
+.project p {
+  font-size: .88rem;
+  color: #55665e;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.project-tech {
+  margin-top: auto;
+  font-size: .82rem;
+  color: #43544c;
+  padding-top: 10px;
+  border-top: 1px solid #e7eee9;
+  margin-bottom: 14px;
+}
+.project-tech strong { color: var(--site-primary); }
+
+/* TIMELINE (EXPERIENCE) */
+.timeline {
+  border-left: 2px solid #b5d5c4;
+  padding-left: 28px;
+  margin-left: 8px;
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 34px;
+}
 .timeline-item:last-child { padding-bottom: 0; }
-.timeline-item:before { content: ""; position: absolute; width: 10px; height: 10px; background: #3c8061; border: 3px solid #edf3ee; border-radius: 50%; left: -31px; top: 6px; }
-.timeline-item h3 { margin-bottom: 4px; font-size: 1.08rem; }
-.timeline-item .date { color: #3b775f; font-size: .8rem; font-weight: 800; }
-.timeline-item p { color: #5b6961; font-size: .92rem; margin: 7px 0 0; }
-.contact-box { background: var(--site-primary); color: white; border-radius: 20px; padding: clamp(25px, 5vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-.contact-box h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); line-height: 1.15; letter-spacing: -.05em; margin-bottom: 10px; }
-.contact-box p { color: #d8e8de; margin-bottom: 0; max-width: 560px; }
-.contact-box .btn { background: #e1f0e7; color: #173f35; border-color: #e1f0e7; white-space: nowrap; }
-footer { padding: 24px 0; color: #69766e; font-size: .82rem; }
-.footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-@media (max-width: 760px) { .wrap { width: min(100% - 30px, 600px); } .nav { min-height: 66px; } nav { gap: 12px; } nav a { font-size: .8rem; } .hero { grid-template-columns: 1fr; padding: 62px 0 54px; gap: 30px; } .profile-card { min-height: 0; } .initials { margin-bottom: 24px; } section { padding: 54px 0; } .section-head { display: block; } .section-note { margin-top: 13px; } .about-grid, .project-grid { grid-template-columns: 1fr; } .contact-box { align-items: start; flex-direction: column; } }
-@media (max-width: 430px) { nav a:nth-child(2) { display: none; } h1 { font-size: 2.65rem; } .actions .btn { width: 100%; } }
+.timeline-item:before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #2b7a57;
+  border: 4px solid #edf3ee;
+  border-radius: 50%;
+  left: -37px;
+  top: 4px;
+  box-shadow: 0 0 0 2px #b5d5c4;
+}
+.timeline-item .date {
+  color: #236548;
+  font-size: .8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 4px;
+}
+.timeline-item h3 {
+  margin-bottom: 6px;
+  font-size: 1.18rem;
+  color: var(--site-primary);
+  font-weight: 750;
+}
+.timeline-item .role-place {
+  font-size: .92rem;
+  font-weight: 600;
+  color: #4b6256;
+  margin-bottom: 10px;
+}
+.timeline-item p {
+  color: #55675e;
+  font-size: .92rem;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* CONTACT SECTION */
+.contact-box {
+  background: linear-gradient(135deg, #173f35 0%, #1e5241 100%);
+  color: white;
+  border-radius: 24px;
+  padding: clamp(30px, 6vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+.contact-box:after {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  right: -100px;
+  bottom: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 222, 128, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-box h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -.04em;
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+.contact-box p {
+  color: #d1e7dc;
+  margin-bottom: 0;
+  max-width: 580px;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.contact-box .btn-main {
+  background: #ffffff;
+  color: #173f35;
+  font-weight: 750;
+  padding: 14px 24px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transition: transform .15s ease, background .15s ease;
+}
+.contact-box .btn-main:hover {
+  transform: translateY(-2px);
+  background: #eef8f2;
+}
+.contact-box .btn-alt {
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.25);
+  font-weight: 650;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: .88rem;
+  transition: background .15s ease;
+}
+.contact-box .btn-alt:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* FOOTER */
+footer {
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+  color: #63756b;
+  font-size: .86rem;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* MODAL / CASE STUDY POPUP */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 34, 27, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.modal-backdrop.open {
+  display: flex;
+  opacity: 1;
+}
+.modal-dialog {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid #cfe2d7;
+  transform: translateY(20px) scale(0.98);
+  transition: transform .25s ease;
+  position: relative;
+}
+.modal-backdrop.open .modal-dialog {
+  transform: translateY(0) scale(1);
+}
+.modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 28px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.modal-header h3 {
+  font-size: 1.35rem;
+  letter-spacing: -.02em;
+  margin: 0 0 4px;
+  color: var(--site-primary);
+  font-weight: 800;
+}
+.modal-header p {
+  margin: 0;
+  font-size: .86rem;
+  color: #5d6e65;
+}
+.btn-close-modal {
+  background: #edf4f0;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #1f5a45;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background .15s ease, transform .15s ease;
+}
+.btn-close-modal:hover {
+  background: #d8eadf;
+  transform: scale(1.05);
+}
+.modal-body {
+  padding: 28px;
+  color: #3b4d44;
+  line-height: 1.75;
+}
+.modal-section { margin-bottom: 30px; }
+.modal-section:last-child { margin-bottom: 0; }
+.modal-section h4 {
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: var(--site-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  border-bottom: 2px solid var(--accent-light);
+  padding-bottom: 8px;
+}
+.modal-body p { margin-bottom: 12px; font-size: .95rem; }
+
+.data-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin: 16px 0;
+}
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+  text-align: left;
+}
+.modal-table th {
+  background: #edf5f0;
+  color: #173f35;
+  padding: 10px 14px;
+  font-weight: 700;
+  border-bottom: 1px solid #dce8e0;
+}
+.modal-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #eef3f0;
+}
+.modal-table tr:last-child td { border-bottom: none; }
+.modal-table tr:nth-child(even) td { background: #fafcfa; }
+
+.formula-callout {
+  background: #172a22;
+  color: #c9ebd8;
+  border-radius: 12px;
+  padding: 18px 22px;
+  font-family: var(--site-font-mono);
+  font-size: .88rem;
+  margin: 16px 0;
+  line-height: 1.8;
+}
+.formula-callout .hl { color: #80dfa8; font-weight: 600; }
+.formula-callout .comment { color: #7f998c; font-style: italic; }
+
+.tech-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 16px 0;
+}
+.tech-spec-item {
+  background: #f7faf8;
+  border: 1px solid #dce8e1;
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+.tech-spec-item .label {
+  font-size: .76rem;
+  font-weight: 750;
+  color: #2b7050;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 4px;
+}
+.tech-spec-item .val {
+  font-size: .9rem;
+  font-weight: 600;
+  color: #1f3329;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--line);
+  padding: 18px 28px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  background: #fbfdfc;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  flex-wrap: wrap;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 980px) {
+  .featured-project { grid-template-columns: 1fr; }
+  .featured-art { border-left: none; border-top: 1px solid #d7e4dc; padding: 24px 16px; }
+  .project-grid { grid-template-columns: 1fr 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .wrap { width: min(100% - 32px, 600px); }
+  .nav { min-height: 66px; }
+  nav { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 50px 0 44px; gap: 36px; }
+  .profile-card { min-height: 0; }
+  .initials { margin-bottom: 20px; }
+  section { padding: 54px 0; }
+  .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .project-grid { grid-template-columns: 1fr; }
+  .contact-box { flex-direction: column; align-items: flex-start; }
+  .contact-buttons { width: 100%; }
+  .contact-box .btn-main, .contact-box .btn-alt { width: 100%; }
+  .tech-spec-grid { grid-template-columns: 1fr; }
+  .featured-content { padding: 36px 20px 24px; }
+}
+
+@media (max-width: 440px) {
+  h1 { font-size: 2.3rem; }
+  .actions .btn { width: 100%; }
+  .featured-actions .btn { width: 100%; }
+}
 </style>
 </head>
 <body>
 <div id="app">
+
+<!-- HEADER / NAVIGATION -->
 <header>
   <div class="wrap nav">
     <a class="brand" href="#home">FAQIH<span>.</span></a>
     <nav aria-label="Navigasi utama">
-      <a href="#tentang">Tentang</a><a href="#project">Project</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#project">Project</a>
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#kontak">Kontak</a>
     </nav>
+    <div class="nav-actions">
+      <a class="btn-nav-github" href="https://github.com/ipatdev" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub Faqih (@ipatdev)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        <span>GitHub</span>
+      </a>
+      <a class="btn primary btn-sm" href="mailto:mochammadfaqih35@gmail.com">Hubungi</a>
+    </div>
   </div>
 </header>
+
 <main>
+  <!-- HERO SECTION -->
   <div class="wrap hero" id="home">
     <div>
-      <div class="eyebrow"><span class="dot"></span> Informatika · IT & Software</div>
-      <h1>Membangun solusi digital yang <em>berguna.</em></h1>
-      <p class="lead">Saya Mochammad Faqih Fahrezi, individu berlatar belakang Informatika yang tertarik pada pengembangan aplikasi, pengelolaan data, dan pemecahan masalah melalui teknologi.</p>
-      <div class="actions"><a class="btn primary" href="#project">Lihat project <span aria-hidden="true">↗</span></a><a class="btn secondary" href="#kontak">Hubungi saya</a></div>
+      <div class="eyebrow"><span class="dot"></span> Informatika · Software & Application Developer</div>
+      <h1>Membangun solusi digital yang <em>berguna, terstruktur & teruji.</em></h1>
+      <p class="lead">Halo, saya <strong>Mochammad Faqih Fahrezi</strong>, lulusan Informatika yang berfokus pada rekayasa perangkat lunak, sistem pendukung keputusan (SPK), aplikasi desktop Java, dan pengelolaan basis data relasional MySQL. Siap berkontribusi secara nyata di dunia industri IT.</p>
+      <div class="actions">
+        <a class="btn primary" href="#project">
+          <span>Lihat Project Pilihan</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+        <a class="btn secondary" href="mailto:mochammadfaqih35@gmail.com">Hubungi Saya</a>
+      </div>
     </div>
-    <aside class="profile-card" aria-label="Ringkasan profil">
-      <div class="initials">MF</div>
-      <h2>Mochammad Faqih Fahrezi</h2>
-      <p>Informatika · Junior IT / Software Development</p>
-      <div class="mini-tags"><span>Java</span><span>PHP</span><span>MySQL</span><span>HTML/CSS</span></div>
+    <aside class="profile-card" aria-label="Ringkasan profil Mochammad Faqih Fahrezi">
+      <div class="profile-avatar-wrap">
+        <img src="assets/foto_profil.jpg" alt="Foto Resmi Mochammad Faqih Fahrezi, S.Kom" class="profile-avatar">
+      </div>
+      <h2>Mochammad Faqih Fahrezi, S.Kom</h2>
+      <p>Sarjana Informatika · Universitas Indraprasta PGRI (UNINDRA)<br>Junior Software Engineer / IT</p>
+      <div class="profile-status">
+        <span class="profile-status-dot"></span>
+        <span>Terbuka untuk peluang kerja IT</span>
+      </div>
+      <div class="mini-tags">
+        <span>Java SE / Swing</span>
+        <span>MySQL</span>
+        <span>Metode SAW (SPK)</span>
+        <span>JasperReports</span>
+        <span>PHP</span>
+        <span>FlatLaf UI</span>
+      </div>
     </aside>
   </div>
+
+  <!-- ABOUT SECTION -->
   <section id="tentang" class="alt">
     <div class="wrap">
-      <div class="section-head"><div><div class="kicker">Tentang saya</div><h2 class="section-title">Teknologi, proses, dan solusi.</h2></div><p class="section-note">Portofolio ini merangkum pengalaman dan project yang relevan untuk peluang kerja di bidang teknologi informasi.</p></div>
+      <div class="section-head">
+        <div>
+          <div class="kicker">Tentang Saya</div>
+          <h2 class="section-title">Teknologi, dedikasi, dan solusi.</h2>
+        </div>
+        <p class="section-note">Mengkombinasikan pemahaman analitis algoritma komputasi dengan implementasi kode praktis untuk menyelesaikan persoalan riil di masyarakat dan bisnis.</p>
+      </div>
       <div class="about-grid">
-        <div><p>Saya memiliki pengalaman mengembangkan aplikasi desktop untuk mendukung pencatatan inventori, serta mengerjakan project akademik terkait sistem informasi dan pengolahan data. Saya senang mempelajari teknologi baru dan membangun solusi yang sesuai dengan kebutuhan pengguna.</p><p>Saya terbuka terhadap kesempatan awal karier di bidang IT, termasuk pengembangan aplikasi, web development, dan peran teknis yang relevan.</p></div>
-        <div class="skill-list" aria-label="Teknologi dan bidang minat"><span>Java</span><span>Java Swing</span><span>PHP</span><span>HTML & CSS</span><span>JavaScript</span><span>MySQL / MariaDB</span><span>NetBeans</span><span>XAMPP</span><span>Analisis Sistem</span><span>Database</span><span>Dokumentasi Teknis</span></div>
+        <div class="about-text">
+          <p>Saya memiliki ketertarikan kuat dalam merancang sistem perangkat lunak yang tidak hanya berfungsi secara teknis, namun juga memberikan dampak positif langsung bagi para penggunanya. Latar belakang akademik Informatika membekali saya fondasi kuat dalam <strong>Object-Oriented Programming (OOP)</strong>, perancangan arsitektur basis data, serta penerapan algoritma komputasi cerdas.</p>
+          <p>Pada project Tugas Akhir (Skripsi), saya merancang dan menuntaskan <strong>Aplikasi Sistem Pendukung Keputusan (SPK) Penyaluran Zakat Fitrah</strong> berbasis Java Desktop menggunakan metode Simple Additive Weighting (SAW) dengan studi kasus warga RT 09 Halim Perdanakusuma. Project ini berhasil memproses dataset 100 calon mustahik dengan akurasi 100% dan menghasilkan laporan formal via JasperReports.</p>
+          <p>Selain itu, pengalaman magang di Toko Artic Sparepart AC memberikan saya pengalaman praktis langsung dalam mengidentifikasi alur bisnis logistik serta membangun sistem inventori desktop yang andal untuk manajemen stok suku cadang AC.</p>
+        </div>
+        <div class="skill-card">
+          <h4>Keahlian & Teknologi (Tech Stack)</h4>
+          <div class="skill-list" aria-label="Bahasa Pemrograman">
+            <span>☕ Java (SE/Swing/OOP)</span>
+            <span>🐘 PHP</span>
+            <span>⚡ C# (.NET Wrapper)</span>
+            <span>🌐 JavaScript</span>
+            <span>🎨 HTML5 & CSS3</span>
+          </div>
+          <h4>Database & Tooling</h4>
+          <div class="skill-list" aria-label="Database dan Perangkat Lunak">
+            <span>🐬 MySQL / MariaDB</span>
+            <span>📊 JasperReports & iReport</span>
+            <span>☕ FlatLaf Modern Look & Feel</span>
+            <span>🛠️ NetBeans IDE</span>
+            <span>📦 Git & GitHub</span>
+            <span>📑 XAMPP / phpMyAdmin</span>
+          </div>
+          <h4>Metodologi & Konsep</h4>
+          <div class="skill-list" aria-label="Metodologi">
+            <span>📐 Decision Support System (SPK)</span>
+            <span>⚖️ Simple Additive Weighting (SAW)</span>
+            <span>🔍 Database Relational & Cascading</span>
+            <span>📑 Dokumentasi Teknis & User Guide</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- PROJECTS SECTION -->
   <section id="project">
     <div class="wrap">
-      <div class="section-head"><div><div class="kicker">Pilihan pekerjaan</div><h2 class="section-title">Project yang pernah dikerjakan.</h2></div><p class="section-note">Setiap project idealnya dilengkapi screenshot asli, penjelasan kontribusi, dan tautan demo atau source code jika tersedia.</p></div>
-      <div class="project-grid">
-        <article class="project">
-          <div class="project-art"><div class="mock-window" aria-hidden="true"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-body"><div class="mock-heading"></div><div class="mock-stats"><b></b><b></b><b></b></div><div class="mock-row"></div><div class="mock-row"></div><div class="mock-row"></div><div class="mock-row"></div></div></div></div>
-          <div class="project-content"><div class="project-meta"><span>DESKTOP APP</span><span>MAGANG</span></div><h3>Sistem Inventori Toko Artic Sparepart AC</h3><p>Aplikasi desktop berbasis Java untuk membantu pengelolaan data barang dan stok. Project ini dikembangkan sebagai bagian dari pengalaman magang.</p><p><strong>Teknologi:</strong> Java Swing, NetBeans, database MySQL/MariaDB.</p><a class="project-link" href="#kontak">Minta demo / detail project ↗</a></div>
-        </article>
-        <article class="project">
-          <div class="project-art"><div class="mock-code" aria-hidden="true"><div><span class="green">// Sistem Pendukung Keputusan</span></div><div>kriteria = [penghasilan,</div><div>&nbsp; tanggungan, pekerjaan,</div><div>&nbsp; kondisi_rumah, aset];</div><div class="green">// Normalisasi dan pembobotan</div><div>nilai_akhir = Σ(bobot × nilai);</div><div>urutkan(nilai_akhir);</div></div></div>
-          <div class="project-content"><div class="project-meta"><span>ACADEMIC PROJECT</span><span>DECISION SUPPORT</span></div><h3>Sistem Pendukung Keputusan Penerima Zakat Fitrah</h3><p>Project akademik untuk membantu proses penilaian dan pemeringkatan calon penerima berdasarkan kriteria yang ditentukan menggunakan metode SAW.</p><p><strong>Fokus:</strong> analisis kebutuhan, kriteria, pembobotan, dan hasil perankingan.</p><a class="project-link" href="#kontak">Minta detail project ↗</a></div>
-        </article>
-        <article class="project">
-          <div class="project-art"><div class="mock-window" aria-hidden="true"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-body"><div class="mock-heading" style="width:55%"></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px"><b style="height:70px;border-radius:5px;background:#e5eee8"></b><b style="height:70px;border-radius:5px;background:#e5eee8"></b><b style="height:70px;border-radius:5px;background:#e5eee8"></b></div><div class="mock-row"></div><div class="mock-row"></div></div></div></div>
-          <div class="project-content"><div class="project-meta"><span>WEB PROJECT</span><span>E-COMMERCE CONCEPT</span></div><h3>JERSEYKU.COM</h3><p>Konsep website katalog jersey sepak bola yang berfokus pada penyajian produk dan pengalaman penelusuran bagi calon pembeli.</p><p><strong>Fokus:</strong> perancangan halaman web dan struktur katalog produk.</p><a class="project-link" href="#kontak">Minta detail project ↗</a></div>
-        </article>
-        <article class="project">
-          <div class="project-art"><div class="mock-code" aria-hidden="true"><div><span class="green">&lt;?php</span></div><div>$conn = mysqli_connect(</div><div>&nbsp; $host, $user, $password,</div><div>&nbsp; $database</div><div>);</div><div class="green">// CRUD dan pengolahan data</div><div>if ($conn) { /* ... */ }</div></div></div>
-          <div class="project-content"><div class="project-meta"><span>WEB DEVELOPMENT</span><span>PHP & DATABASE</span></div><h3>Project Web PHP & MySQL</h3><p>Tambahkan project web lain yang pernah kamu buat. Jelaskan kebutuhan, fitur yang benar-benar selesai, peran pribadi, serta hasil yang bisa diverifikasi.</p><p><strong>Teknologi:</strong> sesuaikan dengan implementasi project aslimu.</p><a class="project-link" href="#kontak">Tambahkan detail project ↗</a></div>
-        </article>
+      <div class="section-head">
+        <div>
+          <div class="kicker">Portofolio Pekerjaan</div>
+          <h2 class="section-title">Project yang pernah dikerjakan.</h2>
+        </div>
+        <p class="section-note">Setiap project dibangun berdasarkan analisis kebutuhan nyata, dilengkapi skema basis data relasional, implementasi clean code, serta dokumentasi teknis yang tuntas.</p>
       </div>
-      <p class="project-footnote">Catatan: visual kartu di atas adalah ilustrasi desain, bukan screenshot aplikasi asli. Ganti dengan gambar project milikmu sebelum dipublikasikan sebagai portofolio final.</p>
+
+      <!-- FEATURED PROJECT SPOTLIGHT: APP SPK ZAKAT -->
+      <article class="featured-project" id="project-spk-zakat">
+        <div class="featured-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <span>Project Unggulan · Skripsi</span>
+        </div>
+        <div class="featured-content">
+          <div>
+            <div class="featured-meta">
+              <span class="badge">Sistem Pendukung Keputusan</span>
+              <span class="badge">Metode SAW</span>
+              <span class="badge">Java Swing (FlatLaf)</span>
+              <span class="badge">MySQL Relasional</span>
+              <span class="badge">JasperReports</span>
+            </div>
+            <h3>Sistem Pendukung Keputusan (SPK) Penyaluran Zakat Fitrah</h3>
+            <p class="desc">Aplikasi desktop komprehensif yang dirancang untuk mengotomatisasi penilaian kelayakan dan penentuan prioritas calon mustahik (penerima zakat fitrah) secara objektif dan transparan. Mengimplementasikan algoritma <strong>Simple Additive Weighting (SAW)</strong> dengan 8 kriteria terbobot pada studi kasus riil RT 09 Kelurahan Halim Perdanakusuma.</p>
+            
+            <ul class="feature-highlights">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Algoritma SAW Otomatis:</strong> Normalisasi matriks keputusan & pembobotan preferensi instan mengeliminasi bias subjektif amil zakat.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>8 Kriteria Penilaian Riil:</strong> Penghasilan (25%), Jumlah Tanggungan (20%), Status Pekerjaan (15%), Status Tempat Tinggal (12%), Kepemilikan Aset (10%), Kondisi Kesehatan (8%), Jumlah Anggota Keluarga Bekerja (5%), Usia (5%).</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Pelaporan Formal JasperReports:</strong> Ekspor dan cetak lembar rekomendasi mustahik resmi lengkap dengan kop RT 09 dan tanggal dinamis.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Teruji 100 Data Mustahik & 40 Subkriteria:</strong> Memproses penilaian terkomputerisasi dengan grafik tren tahunan dan ranking teratas (Top Rank) berakurasi 100%.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="featured-actions">
+            <button class="btn primary btn-sm" onclick="openModal('modal-spk')" type="button">
+              <span>Lihat Detail & Studi Kasus</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+            <a class="btn secondary btn-sm" href="ManualBook.html" target="_blank" rel="noopener noreferrer">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+              <span>Buka Manual Book</span>
+            </a>
+            <a class="btn secondary btn-sm" href="https://github.com/ipatdev" target="_blank" rel="noopener noreferrer">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub @ipatdev</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- REAL APPLICATION SCREENSHOT PREVIEW -->
+        <div class="featured-art">
+          <div class="app-window" aria-hidden="true" style="max-width: 480px;">
+            <div class="window-titlebar">
+              <div class="window-controls">
+                <span class="window-dot close"></span>
+                <span class="window-dot min"></span>
+                <span class="window-dot max"></span>
+              </div>
+              <div class="window-title">Aplikasi SPK Penyaluran Zakat Fitrah - RT 09</div>
+              <span style="font-size: 8.5px; background: rgba(255,255,255,0.18); padding: 2px 7px; border-radius: 4px; font-weight: 600;">GUI Riil</span>
+            </div>
+            <div style="background: #173f35; overflow: hidden; position: relative;">
+              <img src="assets/dashboard_spk_zakat.png" alt="Tampilan Nyata Dashboard Aplikasi SPK Zakat RT 09" style="width: 100%; height: auto; display: block;">
+            </div>
+            <div style="background: #ffffff; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #dce8e0; font-size: 11px;">
+              <span style="color: #173f35; font-weight: 750; display: inline-flex; align-items: center; gap: 6px;">
+                <span style="width: 8px; height: 8px; background: #28a745; border-radius: 50%; display: inline-block;"></span>
+                Top Rank: Fathurozi & Maesaroh (0,8840)
+              </span>
+              <span style="color: #55675e; font-size: 10px; font-weight: 600;">100 Mustahik · 8 Kriteria · 40 Subkriteria</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- FEATURED PROJECT 2: SISTEM INVENTORI TOKO ARTIC -->
+      <article class="featured-project" id="project-inventori-artic" style="border-color: #a8cae8;">
+        <div class="featured-tag" style="background: #153243;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <span>Project Magang Industri · Software Development</span>
+        </div>
+        <div class="featured-content">
+          <div>
+            <div class="featured-meta">
+              <span class="badge" style="background:#e3f0fa;color:#184a6e;border-color:#bad7ee">Java Swing Desktop</span>
+              <span class="badge" style="background:#e3f0fa;color:#184a6e;border-color:#bad7ee">MySQL Relasional</span>
+              <span class="badge" style="background:#e3f0fa;color:#184a6e;border-color:#bad7ee">JasperReports Engine</span>
+              <span class="badge" style="background:#e3f0fa;color:#184a6e;border-color:#bad7ee">Condet Jakarta Timur</span>
+            </div>
+            <h3>Sistem Inventori & Pengelolaan Stok — Toko Artic Sparepart AC</h3>
+            <p class="desc">Aplikasi desktop berbasis Java untuk digitalisasi alur rantai pasok dan kontrol persediaan suku cadang pendingin ruangan (AC) di Toko Artic Sparepart, Condet, Jakarta Timur. Menggantikan pembukuan nota manual dengan sistem terintegrasi yang memantau sirkulasi barang masuk, barang keluar, batas minimum persediaan, serta pencetakan laporan inventori resmi.</p>
+            
+            <ul class="feature-highlights">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Master Data Barang Lengkap:</strong> CRUD terstruktur (ID, Nama, Merk, Tipe, Stok, Harga, Tanggal Masuk) dengan <em>Live Search Bar</em> dan pemilih tanggal.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Manajemen Supplier & Restock:</strong> Pencatatan Transaksi Masuk dari distributor yang secara otomatis menambah (*increment*) stok fisik di gudang.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Proteksi Transaksi Keluar:</strong> Validasi otomatis saat pengeluaran barang untuk penjualan/teknisi agar tidak terjadi galat stok minus.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Pelaporan Otomatis JasperReports:</strong> Sekali klik untuk menghasilkan <em>Laporan Data Barang</em> formal berkop surat toko dan siap cetak.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="featured-actions">
+            <button class="btn primary btn-sm" onclick="openModal('modal-inventori')" type="button">
+              <span>Lihat Detail & Laporan</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+            <a class="btn secondary btn-sm" href="mailto:mochammadfaqih35@gmail.com">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>Email Saya</span>
+            </a>
+            <a class="btn secondary btn-sm" href="https://github.com/ipatdev" target="_blank" rel="noopener noreferrer">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub @ipatdev</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- REAL APPLICATION SCREENSHOT PREVIEW -->
+        <div class="featured-art" style="background: linear-gradient(135deg, #e4ecf3 0%, #d3e1ec 100%); border-left-color: #c7d8e6;">
+          <div class="app-window" aria-hidden="true" style="max-width: 480px; border-color: #b9cee0;">
+            <div class="window-titlebar" style="background: #0f2b46;">
+              <div class="window-controls">
+                <span class="window-dot close"></span>
+                <span class="window-dot min"></span>
+                <span class="window-dot max"></span>
+              </div>
+              <div class="window-title">Input Data Barang — Toko Artic Sparepart AC</div>
+              <span style="font-size: 8.5px; background: rgba(255,255,255,0.18); padding: 2px 7px; border-radius: 4px; font-weight: 600;">GUI Riil</span>
+            </div>
+            <div style="background: #0c1b29; overflow: hidden; position: relative;">
+              <img src="assets/inventori_artic_app.jpg" alt="Tampilan Nyata Aplikasi Inventori Toko Artic Sparepart" style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 16/10;">
+            </div>
+            <div style="background: #ffffff; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #dce8e0; font-size: 11px;">
+              <span style="color: #153243; font-weight: 750; display: inline-flex; align-items: center; gap: 6px;">
+                <span style="width: 8px; height: 8px; background: #0070f3; border-radius: 50%; display: inline-block;"></span>
+                Jl. Raya Condet, Kramat Jati, Jakarta Timur
+              </span>
+              <span style="color: #55675e; font-size: 10px; font-weight: 600;">JasperReports PDF & Cetak</span>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
+
+  <!-- EXPERIENCE SECTION -->
   <section id="pengalaman" class="alt">
     <div class="wrap">
-      <div class="section-head"><div><div class="kicker">Pengalaman</div><h2 class="section-title">Belajar dengan mengerjakan.</h2></div></div>
+      <div class="section-head">
+        <div>
+          <div class="kicker">Pengalaman & Riwayat</div>
+          <h2 class="section-title">Rekam jejak & kontribusi.</h2>
+        </div>
+        <p class="section-note">Pengalaman nyata dalam pengembangan perangkat lunak, kolaborasi pengguna, dan penuntasan project akademik berskala penuh.</p>
+      </div>
+
       <div class="timeline">
-        <div class="timeline-item"><div class="date">PENGALAMAN MAGANG</div><h3>Pengembangan Aplikasi Inventori — Toko Artic Sparepart AC</h3><p>Membantu mengembangkan aplikasi desktop berbasis Java untuk mendukung pengelolaan stok barang. Tambahkan periode magang, tugas spesifik, dan hasil yang dapat kamu buktikan.</p></div>
-        <div class="timeline-item"><div class="date">AKADEMIK</div><h3>Studi Informatika</h3><p>Project akademik mencakup perancangan sistem, database, pengembangan aplikasi, dan penyusunan dokumentasi. Lengkapi status pendidikan dan tahun kelulusan yang benar sebelum publikasi.</p></div>
+        <!-- ITEM 1: SKRIPSI / TUGAS AKHIR -->
+        <div class="timeline-item">
+          <div class="date">TUGAS AKHIR / SKRIPSI INFORMATIKA · 2026</div>
+          <h3>Pengembang Aplikasi SPK Penyaluran Zakat Fitrah (Metode SAW)</h3>
+          <div class="role-place">Studi Kasus Lingkungan RT 09 Kelurahan Halim Perdanakusuma</div>
+          <p>Bertanggung jawab penuh atas siklus hidup pengembangan sistem (SDLC) end-to-end: merumuskan permasalahan riil pengurus amil zakat RT 09, merancang skema database relasional MySQL denormalized 8 kriteria, mengimplementasikan algoritma Simple Additive Weighting (SAW) di Java, membangun antarmuka FlatLaf modern dengan fitur Instant Search, mengintegrasikan JasperReports untuk cetak dokumen formal, serta menyusun Manual Book operasional sistem lengkap dengan pengujian 100 data mustahik.</p>
+        </div>
+
+        <!-- ITEM 2: MAGANG INDUSTRI -->
+        <div class="timeline-item">
+          <div class="date">PENGALAMAN MAGANG INDUSTRI · SOFTWARE DEVELOPMENT</div>
+          <h3>Pengembang Aplikasi Sistem Inventori Desktop</h3>
+          <div class="role-place">Toko Artic Sparepart AC (Condet, Jakarta Timur)</div>
+          <p>Membantu digitalisasi penuh alur manajemen rantai pasok dan inventori toko suku cadang AC. Merancang antarmuka desktop berbasis Java Swing, membangun modul master Data Barang (CRUD + Live Search), Data Supplier, pencatatan Transaksi Masuk & Keluar, mengkoneksikan ke basis data MySQL, serta mengintegrasikan JasperReports untuk otomatisasi cetak dokumen resmi Laporan Data Barang.</p>
+        </div>
+
+        <!-- ITEM 3: PENDIDIKAN AKADEMIK -->
+        <div class="timeline-item">
+          <div class="date">PENDIDIKAN FORMAL</div>
+          <h3>Sarjana Komputer (S.Kom) — Program Studi Informatika</h3>
+          <div class="role-place">Universitas Indraprasta PGRI (UNINDRA)</div>
+          <p>Mempelajari dasar-dasar ilmu komputer, algoritma dan struktur data, Object-Oriented Programming (OOP), perancangan sistem informasi (UML), manajemen basis data relasional (RDBMS), metodologi SPK (Decision Support System), dan rekayasa perangkat lunak.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- CONTACT SECTION -->
   <section id="kontak">
-    <div class="wrap"><div class="contact-box"><div><div class="kicker" style="color:#bce4cd">Kontak</div><h2>Terbuka untuk peluang berikutnya.</h2><p>Saya terbuka untuk kesempatan kerja entry-level di bidang IT. Hubungi saya untuk berdiskusi mengenai pengalaman, project, atau peluang yang sesuai.</p></div><a class="btn" href="mailto:emailkamu@example.com">Email saya ↗</a></div></div>
+    <div class="wrap">
+      <div class="contact-box">
+        <div>
+          <div class="kicker" style="color:#bce4cd">Kontak & Rekrutmen</div>
+          <h2>Siap berkontribusi pada tim teknologi Anda.</h2>
+          <p>Saya terbuka untuk kesempatan kerja penuh waktu (Full-time), kontrak, atau magang tingkat lanjut dalam peran <strong>Junior Java Developer</strong>, <strong>Junior Software Engineer</strong>, atau <strong>IT Support / Application</strong>. Mari diskusikan bagaimana kemampuan saya dapat mendukung kebutuhan perusahaan Anda.</p>
+        </div>
+        <div class="contact-buttons">
+          <a class="btn-main" href="mailto:mochammadfaqih35@gmail.com" title="Kirim email ke mochammadfaqih35@gmail.com">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>mochammadfaqih35@gmail.com</span>
+          </a>
+          <a class="btn-alt" href="https://github.com/ipatdev" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub @ipatdev</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
-<footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> Mochammad Faqih Fahrezi</span><span>Portofolio profesional · Informatika</span></div></footer>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-inner">
+    <span>© <span id="year">2026</span> Mochammad Faqih Fahrezi. All rights reserved.</span>
+  </div>
+</footer>
+
+</div><!-- #app -->
+
+
+<!-- ============================================================ -->
+<!-- MODAL 1: STUDI KASUS APP SPK ZAKAT -->
+<!-- ============================================================ -->
+<div class="modal-backdrop" id="modal-spk" role="dialog" aria-modal="true" aria-labelledby="modal-spk-title" onclick="handleBackdropClick(event)">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div>
+        <div class="badge" style="margin-bottom:6px">STUDI KASUS TEKNIS LENGKAP</div>
+        <h3 id="modal-spk-title">Sistem Pendukung Keputusan (SPK) Penyaluran Zakat Fitrah</h3>
+        <p>Studi Kasus: RT 09 Kelurahan Halim Perdanakusuma | Metode Simple Additive Weighting (SAW)</p>
+      </div>
+      <button class="btn-close-modal" type="button" onclick="closeModal('modal-spk')" aria-label="Tutup jendela modal">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- 1. PROBLEM & BACKGROUND -->
+      <div class="modal-section">
+        <h4>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          1. Latar Belakang & Permasalahan Riil
+        </h4>
+        <p>Penyaluran zakat fitrah pada tingkat rukun tetangga (RT 09) menghadapi kendala klasik: penentuan penerima zakat (mustahik) selama ini didasarkan pada survei manual yang memakan waktu 3-5 hari kerja panitia amil, rentan kekeliruan perhitungan, serta berpotensi menimbulkan kecemburuan sosial akibat pertimbangan subjektif.</p>
+        <p>Untuk mengatasi masalah tersebut, dibangun sistem pendukung keputusan desktop berbasis Java yang mampu menghitung nilai kelayakan secara matematis dan objektif sesuai syariat dan kriteria prioritas kemiskinan yang disepakati warga.</p>
+      </div>
+
+      <!-- 2. SAW ALGORITHM & CRITERIA -->
+      <div class="modal-section">
+        <h4>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          2. Penerapan Metode Simple Additive Weighting (SAW)
+        </h4>
+        <p>Metode SAW (dikenal sebagai metode penjumlahan terbobot) dipilih karena memiliki kemampuan perankingan yang transparan, mudah diverifikasi oleh panitia amil zakat, dan memiliki kompleksitas komputasi yang efisien.</p>
+
+        <p><strong>Daftar 8 Kriteria Penilaian dan Pembobotan Resmi (Sesuai Implementasi Riil Sistem):</strong></p>
+        <div class="data-table-wrap">
+          <table class="modal-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama Kriteria</th>
+                <th>Bobot</th>
+                <th>Atribut</th>
+                <th>Deskripsi Parameter & Logika Skala</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>C0001</strong></td>
+                <td><strong>Penghasilan</strong></td>
+                <td><strong>0.25 (25%)</strong></td>
+                <td><span class="badge" style="background:#d4edd9;color:#1b6336">Benefit</span></td>
+                <td>Tingkat pendapatan per bulan calon mustahik. Skala nilai tertinggi (prioritas utama) diberikan kepada keluarga dengan penghasilan paling rendah atau tidak memiliki pemasukan tetap.</td>
+              </tr>
+              <tr>
+                <td><strong>C0002</strong></td>
+                <td><strong>Jumlah Tanggungan</strong></td>
+                <td><strong>0.20 (20%)</strong></td>
+                <td><span class="badge" style="background:#d4edd9;color:#1b6336">Benefit</span></td>
+                <td>Banyaknya anggota keluarga dalam tanggungan hidup (anak usia sekolah, balita, lansia yang belum mandiri). Makin banyak tanggungan, makin tinggi nilai kelayakan.</td>
+              </tr>
+              <tr>
+                <td><strong>C0003</strong></td>
+                <td><strong>Status Pekerjaan</strong></td>
+                <td><strong>0.15 (15%)</strong></td>
+                <td><span class="badge" style="background:#d4edd9;color:#1b6336">Benefit</span></td>
+                <td>Stabilitas dan kepastian mata pencaharian kepala keluarga (pengangguran/tidak bekerja, buruh harian lepas, pedagang keliling/informal, hingga pekerja tetap). Tingkat kerentanan tertinggi memperoleh skor maksimal.</td>
+              </tr>
+              <tr>
+                <td><strong>C0004</strong></td>
+                <td><strong>Status Tempat Tinggal</strong></td>
+                <td><strong>0.12 (12%)</strong></td>
+                <td><span class="badge" style="background:#d4edd9;color:#1b6336">Benefit</span></td>
+                <td>Status kepemilikan dan kelayakan tempat tinggal (menumpang keluarga/orang lain, kontrak/sewa petakan, atau menempati hunian sederhana). Hunian yang paling tidak menentu diprioritaskan.</td>
+              </tr>
+              <tr>
+                <td><strong>C0005</strong></td>
+                <td><strong>Kepemilikan Aset</strong></td>
+                <td><strong>0.10 (10%)</strong></td>
+                <td><span class="badge" style="background:#d4edd9;color:#1b6336">Benefit</span></td>
+                <td>Kepemilikan harta berharga atau penunjang ekonomi (seperti kendaraan bermotor, simpanan uang, atau perabot berharga). Ketiadaan atau minimnya kepemilikan aset memberikan skor kelayakan lebih tinggi.</td>
+              </tr>
+              <tr>
+                <td><strong>C0006</strong></td>
+                <td><strong>Kondisi Kesehatan</strong></td>
+                <td><strong>0.08 (8%)</strong></td>
+                <td><span class="badge" style="background:#d4edd9;color:#1b6336">Benefit</span></td>
+                <td>Kondisi fisik dan riwayat kesehatan anggota keluarga (penyakit kronis/menahun, disabilitas fisik/sensorik, atau kondisi lansia yang membutuhkan biaya medis dan perawatan berkala).</td>
+              </tr>
+              <tr>
+                <td><strong>C0007</strong></td>
+                <td><strong>Jumlah Anggota Keluarga Yang Bekerja</strong></td>
+                <td><strong>0.05 (5%)</strong></td>
+                <td><span class="badge" style="background:#d4edd9;color:#1b6336">Benefit</span></td>
+                <td>Jumlah anggota keluarga yang memiliki pemasukan aktif dalam satu KK. Rumah tangga dengan sedikit atau tanpa pencari nafkah aktif memiliki rasio beban ekonomi lebih berat dan diprioritaskan.</td>
+              </tr>
+              <tr>
+                <td><strong>C0008</strong></td>
+                <td><strong>Usia</strong></td>
+                <td><strong>0.05 (5%)</strong></td>
+                <td><span class="badge" style="background:#d4edd9;color:#1b6336">Benefit</span></td>
+                <td>Faktor usia kepala keluarga / calon mustahik. Memberikan afirmasi dan perlindungan sosial bagi warga berusia lanjut (lansia rentan) yang sudah menurun produktivitas fisiknya.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="background:#f4f9f6; border-left:4px solid #2b7a57; padding:12px 16px; border-radius:0 8px 8px 0; margin-bottom:18px; font-size:0.9rem; color:#2c4b3d">
+          <strong>💡 Logika Atribut Benefit pada Pemodelan Kemiskinan:</strong><br>
+          Dalam sistem ini, seluruh kriteria berjenis <em>Benefit</em> karena nilai skala subkriteria (1 s/d 5) telah dikonversi secara berbanding lurus dengan kelayakan zakat. Contoh: pada kriteria <em>Penghasilan</em>, nilai skala tertinggi (5) justru diberikan kepada mereka yang berpenghasilan terendah atau tidak berpenghasilan. Dengan demikian, rumus normalisasi SAW \( R_{ij} = \frac{X_{ij}}{\max(X_j)} \) secara konsisten menghasilkan nilai preferensi (\( V_i \)) tertinggi bagi warga yang paling berhak menerima zakat.
+        </div>
+
+        <p><strong>Tangkapan Layar (Screenshot) Asli Aplikasi:</strong></p>
+        <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:16px; margin:16px 0;">
+          <div style="background:#ffffff; border:1px solid #dce8e0; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.06)">
+            <div style="background:#173f35; color:#ffffff; font-size:11px; font-weight:600; padding:7px 12px; display:flex; justify-content:space-between">
+              <span>Dashboard Aplikasi (Statistik & Ranking Teratas)</span>
+              <span>100 Data Mustahik</span>
+            </div>
+            <img src="assets/dashboard_spk_zakat.png" alt="Dashboard Riil Aplikasi SPK Zakat RT 09" style="width:100%; height:auto; display:block;">
+          </div>
+          <div style="background:#ffffff; border:1px solid #dce8e0; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.06)">
+            <div style="background:#173f35; color:#ffffff; font-size:11px; font-weight:600; padding:7px 12px; display:flex; justify-content:space-between">
+              <span>Master Data 8 Kriteria Penilaian SAW</span>
+              <span>Total Bobot 1.00 (100%)</span>
+            </div>
+            <img src="assets/kriteria_spk_zakat.png" alt="Data Kriteria Riil SPK Zakat RT 09" style="width:100%; height:auto; display:block;">
+          </div>
+        </div>
+
+        <p><strong>Formulasi Perhitungan Matematis:</strong></p>
+        <div class="formula-callout">
+          <span class="comment">// 1. Normalisasi Matriks Keputusan R (Atribut Benefit)</span><br>
+          <span class="hl">R_ij = X_ij / Max(X_j)</span><br><br>
+          <span class="comment">// 2. Perhitungan Nilai Preferensi V untuk setiap Calon Mustahik</span><br>
+          <span class="hl">V_i = Σ ( W_j × R_ij )</span><br><br>
+          <span class="comment">// Keterangan:</span><br>
+          - X_ij : Nilai rating kecocokan alternatif i pada kriteria j<br>
+          - W_j  : Bobot kepentingan kriteria j (Σ W = 1.00 / 100%)<br>
+          - V_i  : Nilai akhir preferensi (rentang 0 - 1.000); nilai tertinggi menempati Peringkat 1
+        </div>
+      </div>
+
+      <!-- 3. ARCHITECTURE & CODE IMPLEMENTATION -->
+      <div class="modal-section">
+        <h4>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          3. Arsitektur Perangkat Lunak & Clean Code
+        </h4>
+        <p>Aplikasi dibangun dengan arsitektur modular yang memisahkan tanggung jawab kode (Separation of Concerns):</p>
+        <ul style="padding-left: 20px; margin-bottom: 16px;">
+          <li><strong>Database Engine:</strong> MySQL dengan skema relasional tabel <code>users</code>, <code>mustahik</code>, <code>kriteria</code>, <code>subkriteria</code>, <code>penilaian</code>, dan <code>hasil</code>, terikat dengan constraint <em>FOREIGN KEY ON UPDATE CASCADE ON DELETE CASCADE</em>.</li>
+          <li><strong>Helper Architecture:</strong> Dibuat modul pembantu modular:
+            <ul style="margin-top:6px">
+              <li><code>Koneksi.java</code>: Singleton pattern koneksi database terpusat.</li>
+              <li><code>SidebarHelper.java</code>: Merender UI sidebar hijau bernuansa FlatLaf secara konsisten dan terpadu.</li>
+              <li><code>SearchHelper.java</code>: Fitur pencarian instan (real-time TableRowSorter) pada kolom data mustahik.</li>
+              <li><code>ReportHelper.java</code>: Men-generate dan meng-compile dynamic JRXML JasperReports langsung ke JasperViewer.</li>
+            </ul>
+          </li>
+          <li><strong>Executable Packaging:</strong> Disertai native Windows Launcher (C# .NET) dengan pendeteksi otomatis ketersediaan JRE di sistem pengguna.</li>
+        </ul>
+
+        <div class="tech-spec-grid">
+          <div class="tech-spec-item">
+            <div class="label">Bahasa & Runtime</div>
+            <div class="val">Java SE 8+ & C# Wrapper (.NET)</div>
+          </div>
+          <div class="tech-spec-item">
+            <div class="label">User Interface</div>
+            <div class="val">Java Swing + FlatLaf Modern Theme</div>
+          </div>
+          <div class="tech-spec-item">
+            <div class="label">Basis Data</div>
+            <div class="val">MySQL / MariaDB (InnoDB Engine)</div>
+          </div>
+          <div class="tech-spec-item">
+            <div class="label">Reporting Engine</div>
+            <div class="val">JasperReports Library (JRXML & PDF)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. IMPACT & RESULTS -->
+      <div class="modal-section">
+        <h4>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          4. Pengujian & Hasil Implementasi
+        </h4>
+        <p>Aplikasi telah diuji coba dengan <strong>100 dataset mustahik warga RT 09</strong>. Seluruh proses pembobotan dan normalisasi berjalan instan (di bawah 1 detik) tanpa selisih matematis bila dikomparasikan dengan perhitungan manual di spreadsheet Microsoft Excel.</p>
+        <p>Pihak pengurus RT dan amil zakat dapat mencetak lembar keputusan rekomendasi penerima zakat fitrah bertandatangan resmi sebagai dokumen pertanggungjawaban dalam musyawarah warga.</p>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a class="btn secondary btn-sm" href="ManualBook.html" target="_blank" rel="noopener noreferrer">Buka Panduan Manual Book ↗</a>
+      <button class="btn secondary btn-sm" type="button" onclick="closeModal('modal-spk')">Tutup Jendela</button>
+      <a class="btn primary btn-sm" href="mailto:mochammadfaqih35@gmail.com">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>Email Faqih ↗</span>
+      </a>
+    </div>
+  </div>
 </div>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<!-- ============================================================ -->
+<!-- MODAL 2: STUDI KASUS SISTEM INVENTORI TOKO ARTIC -->
+<!-- ============================================================ -->
+<div class="modal-backdrop" id="modal-inventori" role="dialog" aria-modal="true" aria-labelledby="modal-inventori-title" onclick="handleBackdropClick(event)">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div>
+        <div class="badge" style="margin-bottom:6px">MAGANG INDUSTRI · SOFTWARE DEVELOPMENT</div>
+        <h3 id="modal-inventori-title">Sistem Inventori & Pengelolaan Stok — Toko Artic Sparepart AC</h3>
+        <p>Studi Kasus: Toko Artic Sparepart (Jl. Raya Condet, Batu Ampar, Kramat Jati, Jakarta Timur)</p>
+      </div>
+      <button class="btn-close-modal" type="button" onclick="closeModal('modal-inventori')" aria-label="Tutup jendela modal">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- 1. PROBLEM & BACKGROUND -->
+      <div class="modal-section">
+        <h4>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          1. Latar Belakang & Masalah Operasional Bisnis
+        </h4>
+        <p>Toko Artic Sparepart AC adalah unit usaha yang berfokus pada penyediaan unit pendingin ruangan, suku cadang (Freon R32, Kapasitor AC, Motor Fan, Pipa Tembaga, PCB Modul, Thermistor), dan aksesoris AC di Jl. Raya Condet, Kramat Jati, Jakarta Timur. Sebelum adanya sistem ini, operasional toko masih mencatat pergerakan barang dan transaksi secara manual di buku nota fisik.</p>
+        <p>Proses manual ini memicu kendala operasional yang merugikan: pencatatan lambat, rawan selisih antara kuantitas fisik di gudang dengan catatan pembukuan, keterlambatan dalam pengadaan kembali (<em>re-stock</em>) barang kritis yang menipis, serta kesulitan pemilik toko dalam merekapitulasi laporan mutasi barang bulanan.</p>
+      </div>
+
+      <!-- 2. SYSTEM FEATURES & MODULES -->
+      <div class="modal-section">
+        <h4>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          2. Modul & Fitur-Fitur Utama Aplikasi
+        </h4>
+        <ul style="padding-left: 20px; margin-bottom: 16px;">
+          <li><strong>Master Data Barang:</strong> Formulir input dan tabel inventori lengkap (ID Barang, Nama Barang, Merk, Tipe, Stok, Harga, Tanggal Masuk) dengan fitur <em>Live Search Bar</em>, tombol aksi (Simpan, Edit, Delete, Refresh), dan pemilih kalender tanggal masuk.</li>
+          <li><strong>Master Data Supplier:</strong> Pengelolaan data mitra pemasok resmi suku cadang pendingin ruangan guna mempercepat pemesanan dan riwayat kontak distributor.</li>
+          <li><strong>Transaksi Barang Masuk (Restocking):</strong> Pencatatan penerimaan suku cadang dari supplier yang secara otomatis memperbarui (*increment*) kuantitas stok di gudang.</li>
+          <li><strong>Transaksi Barang Keluar (Sales/Service):</strong> Pencatatan pengeluaran barang untuk penjualan ke konsumen atau teknisi lapangan dengan validasi otomatis agar kuantitas stok tidak minus.</li>
+          <li><strong>Otomatisasi Laporan (JasperReports):</strong> Tombol <em>PRINT</em> pada antarmuka langsung mengompilasi dan mencetak dokumen <strong>Laporan Data Barang</strong> berkop resmi Toko Artic Sparepart lengkap dengan alamat Jl. Raya Condet, nomor telepon toko (0857-1615-4302), dan lembar tanda tangan pengesahan.</li>
+        </ul>
+
+        <div class="tech-spec-grid">
+          <div class="tech-spec-item">
+            <div class="label">Platform & GUI</div>
+            <div class="val">Java SE (Swing Desktop GUI)</div>
+          </div>
+          <div class="tech-spec-item">
+            <div class="label">Basis Data</div>
+            <div class="val">MySQL / MariaDB Relasional</div>
+          </div>
+          <div class="tech-spec-item">
+            <div class="label">Tooling & IDE</div>
+            <div class="val">NetBeans IDE & XAMPP</div>
+          </div>
+          <div class="tech-spec-item">
+            <div class="label">Reporting Engine</div>
+            <div class="val">JasperReports / iReport (PDF & Cetak)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. REAL SCREENSHOTS & REPORT DOCUMENT -->
+      <div class="modal-section">
+        <h4>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          3. Tangkapan Layar (Screenshot) Asli & Dokumen Laporan
+        </h4>
+        <div style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:16px; margin:16px 0;">
+          <div style="background:#ffffff; border:1px solid #dce8e0; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.06)">
+            <div style="background:#0c1b29; color:#ffffff; font-size:11px; font-weight:600; padding:8px 12px; display:flex; justify-content:space-between">
+              <span>Form Input Data Barang (GUI Desktop)</span>
+              <span>Java Swing</span>
+            </div>
+            <img src="assets/inventori_artic_app.jpg" alt="Tampilan Asli Input Data Barang Toko Artic" style="width:100%; height:auto; display:block;">
+          </div>
+          <div style="background:#ffffff; border:1px solid #dce8e0; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.06)">
+            <div style="background:#173f35; color:#ffffff; font-size:11px; font-weight:600; padding:8px 12px; display:flex; justify-content:space-between">
+              <span>Laporan Resmi Data Barang (JasperReports)</span>
+              <span>Cetak Berkop Toko</span>
+            </div>
+            <img src="assets/laporan_inventori_artic.png" alt="Dokumen Laporan Riil Toko Artic Sparepart" style="width:100%; height:auto; display:block;">
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. CONTRIBUTIONS & IMPACT -->
+      <div class="modal-section">
+        <h4>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          4. Kontribusi Pribadi & Dampak Efisiensi
+        </h4>
+        <p>Sebagai pengembang pada masa magang industri ini, saya merancang antarmuka sistem secara mandiri, mendesain tabel basis data MySQL, mengimplementasikan logika validasi form untuk mencegah galat input staf toko, serta mendesain template JRXML JasperReports. Sistem ini berhasil memangkas durasi audit stok berkala dari belasan menit menjadi instan (<em>real-time</em>) dan menjamin akurasi mutasi suku cadang di toko.</p>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn secondary btn-sm" type="button" onclick="closeModal('modal-inventori')">Tutup Jendela</button>
+      <a class="btn primary btn-sm" href="mailto:mochammadfaqih35@gmail.com">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>Email Faqih ↗</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SCRIPTS -->
+<!-- ============================================================ -->
+<script>
+// Dynamic year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Modal Functions
+function openModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleBackdropClick(event) {
+  if (event.target.classList.contains('modal-backdrop')) {
+    event.target.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+// Close on Escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    const openModals = document.querySelectorAll('.modal-backdrop.open');
+    openModals.forEach(m => {
+      m.classList.remove('open');
+    });
+    document.body.style.overflow = '';
+  }
+});
+</script>
 </body>
 </html>
